@@ -1,0 +1,44 @@
+/*
+Theme Name: My Theme
+Author: Oliegjio
+Author URI: https://github.com/oliegjio
+Version: 1.0
+*/
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana;
+}
+
+body {
+  background: lightgray;
+}
+
+a {
+  color: darkorange;
+  text-decoration: none;
+}
+
+.wrapper {
+  width: 950px;
+  margin: 0 auto;
+}
+
+.site-header {
+  padding: 20px 0;
+  border-bottom: 2px solid brown;
+}
+
+.site-footer {
+  padding: 20px 0;
+  border-top: 2px solid brown;
+}
+
+.post {
+  border-bottom: 2px dotted red;
+  padding: 40px 0;
+}
+
+.post:last-of-type {
+  border-bottom: none;
+}
