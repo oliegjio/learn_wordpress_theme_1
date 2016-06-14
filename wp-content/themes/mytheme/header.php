@@ -3,6 +3,7 @@
   <head>
     <meta charset="<?php bloginfo('charset'); ?>"
     <meta name="viewport" content="width=device-width">
+
     <!-- bloginfo('name') - выводит название сайта -->
     <title>
       <?php bloginfo('name'); ?>
@@ -12,7 +13,7 @@
     <?php wp_head(); ?>
 
   </head>
-  <!-- body_class() - обязательная функция, нужна WordPress'у -->
+<!-- body_class() - обязательная функция, нужна WordPress'у -->
 <body <?php body_class(); ?>>
 
   <div class="wrapper">
@@ -24,6 +25,7 @@
           <?php bloginfo('name'); ?>
         </a>
       </h1>
+
       <h5>
         <!-- Выводит описание сайта -->
         <?php bloginfo('description'); ?>
@@ -34,12 +36,15 @@
         <?php
 
         $args = array(
-          'theme_location' => 'primary' 
+          'theme_location' => 'primary'
         );
 
-        ?>
+        // Выводит список меню из группы 'footer', содержимое этой группы
+        // можно изменить в админке
+        // Подробнее в файле functions.php
+        wp_nav_menu($args);
 
-        <?php wp_nav_menu($args) ?>
+        ?>
 
       </nav>
 

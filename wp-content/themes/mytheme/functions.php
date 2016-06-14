@@ -1,11 +1,17 @@
 <?php
 
+// Загрузка ресурсов сайта
 function MyTheme_resources(){
+  // Загружает таблицу стилей style.css
+  // get_stylesheet_uri() возвращает путь (вместе с именем файла)
+  // к текущей таблице стилей темы (style.css)
   wp_enqueue_style('style', get_stylesheet_uri());
 }
 add_action('wp_enqueue_scripts', 'MyTheme_resources');
 
-// Navigation menus
+// Меню навигации
+// Регестрирует группы меню, в которые через админку можно добавить отдельные
+// страницы
 register_nav_menus(array(
   'primary' => __('Primary Menu'),
   'footer' => __('Footer Menu')

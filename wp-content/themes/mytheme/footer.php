@@ -1,5 +1,6 @@
       <footer class="site-footer">
 
+        <!-- Меню навигации -->
         <nav class="site-nav">
 
           <?php
@@ -8,13 +9,17 @@
             'theme_location' => 'footer'
           );
 
-          ?>
+          // Выводит список меню из группы 'footer', содержимое этой группы
+          // можно изменить в админке
+          // Подробнее в файле functions.php
+          wp_nav_menu($args);
 
-          <?php wp_nav_menu($args) ?>
+          ?>
 
         </nav>
 
         <p>
+          <!-- Выводит имя сайта -->
           <?php bloginfo('name'); ?> - &copy; <?php echo date('Y'); ?>
         </p>
 
