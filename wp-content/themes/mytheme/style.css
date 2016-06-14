@@ -10,10 +10,21 @@ Version: 1.0
   font-family: Verdana;
 }
 
+
+
+
 body {
   background: lightgray;
 }
 
+
+
+
+/*
+
+Общий стиль для всех ссылок
+
+*/
 a {
   color: darkorange;
   text-decoration: none;
@@ -23,30 +34,70 @@ a:hover {
   text-decoration: underline;
 }
 
+
+
+
+/*
+
+Стиль обертки (div), которая центрирует контент
+
+*/
 .wrapper {
-  width: 950px;
   margin: 0 auto;
+  width: 950px;
 }
 
+
+
+
+/*
+
+Стиль заголовка сайта (header)
+
+*/
 .site-header {
   padding-top: 20px;
   border-bottom: 2px solid brown;
 }
 
+
+
+
+/*
+
+Стиль подвала сайта (footer)
+
+*/
 .site-footer {
   padding-bottom: 20px;
   border-top: 2px solid brown;
 }
 
+
+
+
+/*
+
+Стиль отображения поста (article) стандартного layout'а (page.php)
+
+*/
 .post {
-  border-bottom: 2px dotted red;
   padding: 40px 10px;
+  border-bottom: 2px dotted red;
 }
 
 .post:last-of-type {
   border-bottom: none;
 }
 
+
+
+
+/*
+
+Стили меню навигации (div>li>a)
+
+*/
 .site-nav {
   padding-top: 20px;
 }
@@ -64,14 +115,30 @@ a:hover {
 }
 
 .site-nav li {
-    list-style-type: none;
-    display: inline-block;
+  display: inline-block;
+  list-style-type: none;
 }
 
+
+
+
+/*
+
+Стиль отображения статей (article) страницы "Articles"
+
+*/
 .articles-page {
   background-color: lightgreen;
 }
 
+
+
+
+/*
+
+Стиль предупреждения (div) из страницы "About Me"
+
+*/
 .disclaimer {
   margin-top: 10px;
   background-color: orange;
