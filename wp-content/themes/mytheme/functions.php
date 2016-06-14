@@ -1,7 +1,8 @@
 <?php
 
   // Загрузка ресурсов сайта
-  function MyTheme_resources(){
+  function MyTheme_resources()
+  {
 
     // Загружает таблицу стилей style.css
     // get_stylesheet_uri() возвращает путь (вместе с именем файла)
@@ -20,19 +21,29 @@
   // Меню навигации
   // Регестрирует группы меню, в которые через админку можно добавить отдельные
   // страницы
-  register_nav_menus(array(
+  register_nav_menus( array(
     'primary' =>
-    __( 'Primary Menu' ),
+    __(
+      'Primary Menu'
+    ),
 
     'footer' =>
-    __( 'Footer Menu' )
+    __(
+      'Footer Menu'
+    )
   ));
 
-  function get_top_ancestor_id() {
+  function get_top_ancestor_id()
+  {
 
-    if ( $post->post_parent ) {
+    if (
+      $post->post_parent
+    )
+    {
 
-      $ancestors = get_post_ancestors( $post->ID );
+      $ancestors = get_post_ancestors(
+        $post->ID
+      );
 
       return $ancestors[0];
 

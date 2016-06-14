@@ -9,11 +9,14 @@
 
         <?php
 
-          bloginfo( 'charset' );
+          bloginfo(
+            'charset'
+          );
 
         ?>
 
-    ">
+      "
+    >
 
     <meta
       name="viewport"
@@ -25,7 +28,9 @@
 
       <?php
 
-        bloginfo( 'name' );
+        bloginfo(
+          'name'
+        );
 
       ?>
 
@@ -71,12 +76,15 @@
 
             ?>
 
-        ">
+          "
+        >
 
           <!-- Выводит название сайта -->
           <?php
 
-            bloginfo( 'name' );
+            bloginfo(
+              'name'
+            );
 
           ?>
 
@@ -89,7 +97,9 @@
         <!-- Выводит описание сайта -->
         <?php
 
-          bloginfo( 'description' );
+          bloginfo(
+            'description'
+          );
 
         ?>
 
@@ -109,7 +119,9 @@
           // Выводит список меню из группы 'footer', содержимое этой группы
           // можно изменить в админке
           // Подробнее в файле functions.php
-          wp_nav_menu( $args );
+          wp_nav_menu(
+            $args
+          );
 
         ?>
 

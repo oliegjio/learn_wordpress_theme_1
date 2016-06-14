@@ -5,9 +5,13 @@
   get_header();
 
   // Есть ли статьи
-  if( have_posts() ):
+  if(
+    have_posts()
+  ):
 
-    while( have_posts() ):
+    while(
+      have_posts()
+    ):
 
       // Итератор переходит на эту статью, что позволяет использовать функции
       // снизу
@@ -32,7 +36,8 @@
 
         ?>
 
-    ">
+      "
+    >
 
       <!-- Выводит заголовок статьи -->
       <?php
@@ -64,7 +69,15 @@
 
     else:
 
-      echo '<p>No content found</p>';
+      echo '
+
+        <p>
+
+          No content found
+
+        </p>
+
+      ';
 
     endif;
 
