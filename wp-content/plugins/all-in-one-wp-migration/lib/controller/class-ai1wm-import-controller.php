@@ -53,10 +53,10 @@ class Ai1wm_Import_Controller {
 		}
 
 		// Verify secret key by using the value in the database, not in cache
-		if ( $secret_key !== get_site_option( AI1WM_SECRET_KEY, false, false ) ) {
+		if ( $secret_key !== get_option( AI1WM_SECRET_KEY ) ) {
 			Ai1wm_Status::error(
-				__( "Unable to authenticate your request with secret_key = \"{$secret_key}\"", AI1WM_PLUGIN_NAME ),
-				__( "Unable to import", AI1WM_PLUGIN_NAME )
+				sprintf( __( 'Unable to authenticate your request with secret_key = "%s"', AI1WM_PLUGIN_NAME ), $secret_key ),
+				__( 'Unable to import', AI1WM_PLUGIN_NAME )
 			);
 			exit;
 		}
@@ -81,11 +81,13 @@ class Ai1wm_Import_Controller {
 					}
 
 					// Log request
-					Ai1wm_Log::import( $params );
+					if ( empty( $params['priority'] ) || is_file( ai1wm_import_path( $params ) ) ) {
+						Ai1wm_Log::import( $params );
+					}
 
 					// Do request
 					if ( $completed === false || ( $next = next( $filters ) ) && ( $params['priority'] = key( $filters ) ) ) {
-						return Ai1wm_Http::get( admin_url( 'admin-ajax.php?action=ai1wm_import' ), $params );
+						return Ai1wm_Http::post( admin_url( 'admin-ajax.php?action=ai1wm_import' ), $params );
 					}
 				}
 

@@ -31,8 +31,8 @@ class Ai1wm_Export_Config {
 		// Set progress
 		Ai1wm_Status::info( __( 'Adding configuration to archive...', AI1WM_PLUGIN_NAME ) );
 
-		// Clear WP options cache
-		wp_cache_flush();
+		// Initialize empty WP cache
+		wp_cache_init();
 
 		// Get options
 		$options = wp_load_alloptions();

@@ -39,7 +39,7 @@ if ( function_exists( 'gethostname' ) && in_array( gethostname(), $local ) ) {
 // ==================
 // = Plugin Version =
 // ==================
-define( 'AI1WM_VERSION', '5.40' );
+define( 'AI1WM_VERSION', '5.42' );
 
 // ===============
 // = Plugin Name =
@@ -181,21 +181,6 @@ define( 'AI1WM_IMPORT_NAME', 'import.log' );
 // ==================
 define( 'AI1WM_ERROR_NAME', 'error.log' );
 
-// ======================
-// = Export Options Key =
-// ======================
-define( 'AI1WM_EXPORT_OPTIONS', 'ai1wm_export_options' );
-
-// =====================
-// = Error Handler Key =
-// =====================
-define( 'AI1WM_ERROR_HANDLER', 'ai1wm_error_handler' );
-
-// =========================
-// = Exception Handler Key =
-// =========================
-define( 'AI1WM_EXCEPTION_HANDLER', 'ai1wm_exception_handler' );
-
 // ==========
 // = URL IP =
 // ==========
@@ -230,6 +215,11 @@ define( 'AI1WM_ACTIVE_PLUGINS', 'active_plugins' );
 // = Active Sitewide Plugins =
 // ===========================
 define( 'AI1WM_ACTIVE_SITEWIDE_PLUGINS', 'active_sitewide_plugins' );
+
+// ======================
+// = MS Files Rewriting =
+// ======================
+define( 'AI1WM_MS_FILES_REWRITING', 'ms_files_rewriting' );
 
 // ===============
 // = Updater Key =
@@ -325,6 +315,13 @@ if ( ! defined( 'AI1WMDE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMDE_PLUGIN_KEY', 'ai1wmde_plugin_key' );
 }
 
+// ===========================
+// = Dropbox Extension Short =
+// ===========================
+if ( ! defined( 'AI1WMDE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMDE_PLUGIN_SHORT', 'dropbox' );
+}
+
 // ===================================
 // = Google Drive Extension Base Dir =
 // ===================================
@@ -346,6 +343,13 @@ if ( ! defined( 'AI1WMGE_PLUGIN_ABOUT' ) ) {
 // ==============================
 if ( ! defined( 'AI1WMGE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMGE_PLUGIN_KEY', 'ai1wmge_plugin_key' );
+}
+
+// ================================
+// = Google Drive Extension Short =
+// ================================
+if ( ! defined( 'AI1WMGE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMGE_PLUGIN_SHORT', 'gdrive' );
 }
 
 // ================================
@@ -371,6 +375,13 @@ if ( ! defined( 'AI1WMSE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMSE_PLUGIN_KEY', 'ai1wmse_plugin_key' );
 }
 
+// =============================
+// = Amazon S3 Extension Short =
+// =============================
+if ( ! defined( 'AI1WMSE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMSE_PLUGIN_SHORT', 's3' );
+}
+
 // ================================
 // = Multisite Extension Base Dir =
 // ================================
@@ -392,6 +403,13 @@ if ( ! defined( 'AI1WMME_PLUGIN_ABOUT' ) ) {
 // ===========================
 if ( ! defined( 'AI1WMME_PLUGIN_KEY' ) ) {
 	define( 'AI1WMME_PLUGIN_KEY', 'ai1wmme_plugin_key' );
+}
+
+// =============================
+// = Multisite Extension Short =
+// =============================
+if ( ! defined( 'AI1WMME_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMME_PLUGIN_SHORT', 'multisite' );
 }
 
 // ================================
@@ -417,6 +435,13 @@ if ( ! defined( 'AI1WMUE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMUE_PLUGIN_KEY', 'ai1wmue_plugin_key' );
 }
 
+// =============================
+// = Unlimited Extension Short =
+// =============================
+if ( ! defined( 'AI1WMUE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMUE_PLUGIN_SHORT', 'unlimited' );
+}
+
 // ==========================
 // = FTP Extension Base Dir =
 // ==========================
@@ -438,6 +463,13 @@ if ( ! defined( 'AI1WMFE_PLUGIN_ABOUT' ) ) {
 // =====================
 if ( ! defined( 'AI1WMFE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMFE_PLUGIN_KEY', 'ai1wmfe_plugin_key' );
+}
+
+// =======================
+// = FTP Extension Short =
+// =======================
+if ( ! defined( 'AI1WMFE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMFE_PLUGIN_SHORT', 'ftp' );
 }
 
 // ==========================
@@ -463,6 +495,13 @@ if ( ! defined( 'AI1WMLE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMLE_PLUGIN_KEY', 'ai1wmle_plugin_key' );
 }
 
+// =======================
+// = URL Extension Short =
+// =======================
+if ( ! defined( 'AI1WMLE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMLE_PLUGIN_SHORT', 'url' );
+}
+
 // ===============================
 // = OneDrive Extension Base Dir =
 // ===============================
@@ -486,3 +525,9 @@ if ( ! defined( 'AI1WMOE_PLUGIN_KEY' ) ) {
 	define( 'AI1WMOE_PLUGIN_KEY', 'ai1wmoe_plugin_key' );
 }
 
+// ============================
+// = OneDrive Extension Short =
+// ============================
+if ( ! defined( 'AI1WMOE_PLUGIN_SHORT' ) ) {
+	define( 'AI1WMOE_PLUGIN_SHORT', 'onedrive' );
+}
