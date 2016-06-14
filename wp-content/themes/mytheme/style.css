@@ -40,7 +40,7 @@ a:hover {
 
 .post {
   border-bottom: 2px dotted red;
-  padding: 40px 0;
+  padding: 40px 10px;
 }
 
 .post:last-of-type {
@@ -66,4 +66,13 @@ a:hover {
 .site-nav li {
     list-style-type: none;
     display: inline-block;
+}
+
+.articles-page {
+  background-color: lightgreen;
+}
+
+.disclaimer {
+  background-color: lightorange;
+  border: 2px solid darkorange;
 }
