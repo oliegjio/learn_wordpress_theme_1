@@ -73,6 +73,7 @@ a:hover {
 }
 
 .disclaimer {
-  background-color: lightorange;
+  margin-top: 10px;
+  background-color: orange;
   border: 2px solid darkorange;
 }

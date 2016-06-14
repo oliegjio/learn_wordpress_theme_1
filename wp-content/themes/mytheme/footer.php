@@ -5,14 +5,14 @@
 
           <?php
 
-          $args = array(
-            'theme_location' => 'footer'
-          );
+            $args = array(
+              'theme_location' => 'footer'
+            );
 
-          // Выводит список меню из группы 'footer', содержимое этой группы
-          // можно изменить в админке
-          // Подробнее в файле functions.php
-          wp_nav_menu($args);
+            // Выводит список меню из группы 'footer', содержимое этой группы
+            // можно изменить в админке
+            // Подробнее в файле functions.php
+            wp_nav_menu($args);
 
           ?>
 
@@ -20,15 +20,24 @@
 
         <p>
           <!-- Выводит имя сайта -->
-          <?php bloginfo('name'); ?> - &copy; <?php echo date('Y'); ?>
+          <?php
+            bloginfo('name');
+          ?>
+           - &copy;
+          <?php
+            echo date('Y');
+          ?>
         </p>
 
       </footer>
 
       <!-- Обязательная функция, нужна WordPress'у -->
-      <?php wp_footer(); ?>
+      <?php
+        wp_footer();
+      ?>
 
-    </div> <!-- .wrapper -->
+    <!-- .wrapper -->
+    </div>
 
   </body>
 </html>

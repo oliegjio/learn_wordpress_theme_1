@@ -17,14 +17,22 @@ if(have_posts()):
 <article class="post">
   <h2>
     <!-- Выводит ссылку на статью -->
-    <a href="<?php the_permalink(); ?>">
+    <a href="
+      <?php
+        the_permalink();
+      ?>
+    ">
       <!-- Выводит заголовок статьи -->
-      <?php the_title(); ?>
+      <?php
+        the_title();
+      ?>
     </a>
   </h2>
   <p>
     <!-- Выводит содержимое статьи -->
-    <?php the_content(); ?>
+    <?php
+      the_content();
+    ?>
   </p>
 </article>
 
