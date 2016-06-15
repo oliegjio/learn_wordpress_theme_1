@@ -85,8 +85,8 @@ class Ai1wm_Http {
 				// HTTP response
 				for ( $i = 0; $i < 5; $i++, sleep( 1 ) ) {
 
-					// Initialize empty WP cache
-					wp_cache_init();
+					// Flush WP cache
+					ai1wm_cache_flush();
 
 					// Is valid transport layer?
 					if ( get_option( AI1WM_URL_IP ) && get_option( AI1WM_URL_TRANSPORT ) ) {

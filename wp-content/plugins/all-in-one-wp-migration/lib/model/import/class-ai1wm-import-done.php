@@ -52,16 +52,17 @@ class Ai1wm_Import_Done {
 			}
 		}
 
-		// Set the new MS files rewriting
-		if ( get_site_option( AI1WM_MS_FILES_REWRITING ) ) {
-			update_site_option( AI1WM_MS_FILES_REWRITING, 0 );
-		}
-
 		// Open the archive file for reading
 		$archive = new Ai1wm_Extractor( ai1wm_archive_path( $params ) );
 
-		// Unpack must-use plugins
-		$archive->extract_by_files_array( WP_CONTENT_DIR, array( AI1WM_MUPLUGINS_NAME ) );
+		// Include WordPress files
+		$include_files = array_keys( _get_dropins() );
+
+		// Include mu-plugins files
+		$include_files = array_merge( $include_files, array( AI1WM_MUPLUGINS_NAME ) );
+
+		// Unpack WordPress files and mu-plugins files
+		$archive->extract_by_files_array( WP_CONTENT_DIR, $include_files );
 
 		// Close the archive file
 		$archive->close();

@@ -68,16 +68,70 @@ class Ai1wm_Import_Database {
 		// Get Blog URLs
 		foreach ( $blogs as $blog ) {
 
-			// Get Upload Path
-			if ( ! in_array( ai1wm_uploads_path( $blog->Old->Id ), $old_values ) ) {
-				$old_values[] = ai1wm_uploads_path( $blog->Old->Id );
-				$new_values[] = ai1wm_uploads_path( $blog->New->Id );
+			// Get blogs dir Upload Path
+			if ( ! in_array( sprintf( "'%s'", trim( ai1wm_blogsdir_path( $blog->Old->Id ), '/' ) ), $old_values ) ) {
+				$old_values[] = sprintf( "'%s'", trim( ai1wm_blogsdir_path( $blog->Old->Id ), '/' ) );
+				$new_values[] = sprintf( "'%s'", get_blog_option( $blog->New->Id, 'upload_path' ) );
 			}
 
-			// Get escaped Upload Path
-			if ( ! in_array( addslashes( addcslashes( ai1wm_uploads_path( $blog->Old->Id ), '\/' ) ), $old_values ) ) {
-				$old_values[] = addslashes( addcslashes( ai1wm_uploads_path( $blog->Old->Id ), '\/' ) );
-				$new_values[] = addslashes( addcslashes( ai1wm_uploads_path( $blog->New->Id ), '\/' ) );
+			// Get sites Upload Path
+			if ( ! in_array( sprintf( "'%s'", trim( ai1wm_uploads_path( $blog->Old->Id ), '/' ) ), $old_values ) ) {
+				$old_values[] = sprintf( "'%s'", trim( ai1wm_uploads_path( $blog->Old->Id ), '/' ) );
+				$new_values[] = sprintf( "'%s'", get_blog_option( $blog->New->Id, 'upload_path' ) );
+			}
+
+			// Handle old and new sites dir style
+			if ( defined( 'UPLOADBLOGSDIR' ) ) {
+
+				// Get Upload Path
+				if ( ! in_array( ai1wm_blogsdir_path( $blog->Old->Id ), $old_values ) ) {
+					$old_values[] = ai1wm_blogsdir_path( $blog->Old->Id );
+					$new_values[] = ai1wm_blogsdir_path( $blog->New->Id );
+				}
+
+				// Get escaped Upload Path
+				if ( ! in_array( addslashes( addcslashes( ai1wm_blogsdir_path( $blog->Old->Id ), '\/' ) ), $old_values ) ) {
+					$old_values[] = addslashes( addcslashes( ai1wm_blogsdir_path( $blog->Old->Id ), '\/' ) );
+					$new_values[] = addslashes( addcslashes( ai1wm_blogsdir_path( $blog->New->Id ), '\/' ) );
+				}
+
+				// Get Upload Path
+				if ( ! in_array( ai1wm_uploads_path( $blog->Old->Id ), $old_values ) ) {
+					$old_values[] = ai1wm_uploads_path( $blog->Old->Id );
+					$new_values[] = ai1wm_blogsdir_path( $blog->New->Id );
+				}
+
+				// Get escaped Upload Path
+				if ( ! in_array( addslashes( addcslashes( ai1wm_uploads_path( $blog->Old->Id ), '\/' ) ), $old_values ) ) {
+					$old_values[] = addslashes( addcslashes( ai1wm_uploads_path( $blog->Old->Id ), '\/' ) );
+					$new_values[] = addslashes( addcslashes( ai1wm_blogsdir_path( $blog->New->Id ), '\/' ) );
+				}
+
+			} else {
+
+				// Get Upload Path
+				if ( ! in_array( ai1wm_blogsdir_path( $blog->Old->Id ), $old_values ) ) {
+					$old_values[] = ai1wm_blogsdir_path( $blog->Old->Id );
+					$new_values[] = ai1wm_uploads_path( $blog->New->Id );
+				}
+
+				// Get escaped Upload Path
+				if ( ! in_array( addslashes( addcslashes( ai1wm_blogsdir_path( $blog->Old->Id ), '\/' ) ), $old_values ) ) {
+					$old_values[] = addslashes( addcslashes( ai1wm_blogsdir_path( $blog->Old->Id ), '\/' ) );
+					$new_values[] = addslashes( addcslashes( ai1wm_uploads_path( $blog->New->Id ), '\/' ) );
+				}
+
+				// Get Upload Path
+				if ( ! in_array( ai1wm_uploads_path( $blog->Old->Id ), $old_values ) ) {
+					$old_values[] = ai1wm_uploads_path( $blog->Old->Id );
+					$new_values[] = ai1wm_uploads_path( $blog->New->Id );
+				}
+
+				// Get escaped Upload Path
+				if ( ! in_array( addslashes( addcslashes( ai1wm_uploads_path( $blog->Old->Id ), '\/' ) ), $old_values ) ) {
+					$old_values[] = addslashes( addcslashes( ai1wm_uploads_path( $blog->Old->Id ), '\/' ) );
+					$new_values[] = addslashes( addcslashes( ai1wm_uploads_path( $blog->New->Id ), '\/' ) );
+				}
 			}
 
 			// Get Site URL
@@ -378,8 +432,8 @@ class Ai1wm_Import_Database {
 		// Import database
 		$client->import( ai1wm_database_path( $params ) );
 
-		// Initialize empty WP cache
-		wp_cache_init();
+		// Flush WP cache
+		ai1wm_cache_flush();
 
 		// Activate plugins
 		activate_plugins( $active_servmask_plugins, null, is_multisite() );

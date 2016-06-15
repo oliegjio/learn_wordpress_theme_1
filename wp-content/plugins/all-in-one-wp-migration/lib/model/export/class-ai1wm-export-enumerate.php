@@ -33,6 +33,11 @@ class Ai1wm_Export_Enumerate {
 		// Set exclude filters
 		$exclude_filters = ai1wm_content_filters();
 
+		// Exclude cache
+		if ( isset( $params['options']['no_cache'] ) ) {
+			$exclude_filters[] = 'cache';
+		}
+
 		// Exclude themes
 		if ( isset( $params['options']['no_themes'] ) ) {
 			$exclude_filters[] = 'themes';

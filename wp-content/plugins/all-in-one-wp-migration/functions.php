@@ -367,6 +367,48 @@ function ai1wm_sites_path( $blog_id = null ) {
 }
 
 /**
+ * Get files absolute path by blog ID
+ *
+ * @param  integer $blog_id Blog ID
+ * @return string
+ */
+function ai1wm_files_path( $blog_id = null ) {
+	if ( ai1wm_main_site( $blog_id ) ) {
+		return AI1WM_UPLOADS_PATH;
+	}
+
+	return AI1WM_BLOGSDIR_PATH . DIRECTORY_SEPARATOR . $blog_id . DIRECTORY_SEPARATOR . 'files';
+}
+
+/**
+ * Get blogs.dir absolute path by blog ID
+ *
+ * @param  integer $blog_id Blog ID
+ * @return string
+ */
+function ai1wm_blogsdir_path( $blog_id = null ) {
+	if ( ai1wm_main_site( $blog_id ) ) {
+		return "/wp-content/blogs.dir/";
+	}
+
+	return "/wp-content/blogs.dir/{$blog_id}/files/";
+}
+
+/**
+ * Get blogs.dir URL by blog ID
+ *
+ * @param  integer $blog_id Blog ID
+ * @return string
+ */
+function ai1wm_blogsdir_url( $blog_id = null ) {
+	if ( ai1wm_main_site( $blog_id ) ) {
+		return get_site_url( $blog_id, "/wp-content/blogs.dir/" );
+	}
+
+	return get_site_url( $blog_id, "/wp-content/blogs.dir/{$blog_id}/files/" );
+}
+
+/**
  * Get uploads absolute path by blog ID
  *
  * @param  integer $blog_id Blog ID
@@ -586,6 +628,28 @@ function ai1wm_active_sitewide_plugins() {
 function ai1wm_active_plugins() {
 	return array_values( get_option( AI1WM_ACTIVE_PLUGINS, array() ) );
 }
+
+/**
+ * Flush WP options cache
+ *
+ * @return void
+ */
+function ai1wm_cache_flush() {
+	// Initialize WP cache
+	wp_cache_init();
+
+	// Flush WP cache
+	wp_cache_flush();
+
+	// Set WP cache
+	wp_cache_set( 'alloptions', array(), 'options' );
+	wp_cache_set( 'notoptions', array(), 'options' );
+
+	// Delete WP cache
+	wp_cache_delete( 'alloptions', 'options' );
+	wp_cache_delete( 'notoptions', 'options' );
+}
+
 
 /**
  * URL encode

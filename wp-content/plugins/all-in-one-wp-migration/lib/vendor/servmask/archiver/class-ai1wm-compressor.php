@@ -63,12 +63,22 @@ class Ai1wm_Compressor extends Ai1wm_Archiver {
 			$this->write_to_handle( $this->file_handle, $block, $this->filename );
 		}
 
+		// set file size
+		$current_filesize = $this->get_current_filesize() - $offset;
+
 		// start time
 		$start = microtime( true );
 
 		// read the file in 512KB chunks
-		while ( false === feof( $handle ) ) {
-			$content = $this->read_from_handle( $handle, 512000, $file );
+		while ( $current_filesize > 0 ) {
+			// read the file in chunks of 512KB
+			$chunk_size = $current_filesize > 512000 ? 512000 : $current_filesize;
+
+			// read the file in chunks of 512KB
+			$content = $this->read_from_handle( $handle, $chunk_size, $file );
+
+			// remove the amount of bytes we read
+			$current_filesize -= $chunk_size;
 
 			// write file contents
 			$this->write_to_handle( $this->file_handle, $content, $this->filename );

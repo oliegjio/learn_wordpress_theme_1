@@ -300,7 +300,7 @@ class Ai1wm_Extractor extends Ai1wm_Archiver {
 			// read the file in chunks of 512KB from archiver
 			$content = $this->read_from_handle( $this->file_handle, $chunk_size, $this->filename );
 
-			// remote the amount of bytes we read
+			// remove the amount of bytes we read
 			$data['size'] -= $chunk_size;
 
 			// write file contents
@@ -372,6 +372,11 @@ class Ai1wm_Extractor extends Ai1wm_Archiver {
 		return ! feof( $this->file_handle );
 	}
 
+	/**
+	 * Get current file pointer
+	 *
+	 * return int
+	 */
 	public function get_file_pointer() {
 		$result = ftell( $this->file_handle );
 

@@ -26,6 +26,15 @@
 				<input type="checkbox" id="ai1wm-no-plugins" name="options[no_plugins]" />
 				<label for="ai1wm-no-plugins"><?php _e( 'Do <strong>not</strong> export plugins (files)', AI1WM_PLUGIN_NAME ); ?></label>
 			</li>
+
+			<?php if ( apply_filters( 'ai1wm_max_file_size', AI1WM_MAX_FILE_SIZE ) === 0 ): ?>
+				<li>
+					<input type="checkbox" id="ai1wm-no-cache" name="options[no_cache]" />
+					<label for="ai1wm-no-cache"><?php _e( 'Do <strong>not</strong> export cache (files)', AI1WM_PLUGIN_NAME ); ?></label>
+					<small style="color:red"><?php _e( 'new', AI1WM_PLUGIN_NAME ); ?></small>
+				</li>
+			<?php endif; ?>
+
 			<li>
 				<input type="checkbox" id="ai1wm-no-database" name="options[no_database]" />
 				<label for="ai1wm-no-database"><?php _e( 'Do <strong>not</strong> export database (sql)', AI1WM_PLUGIN_NAME ); ?></label>

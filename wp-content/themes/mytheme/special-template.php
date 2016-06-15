@@ -2,13 +2,13 @@
 /*
 Template Name: Special Layout
 */
-// Строка выше нужна, чтобы зарегестировать шаблон
-// Теперь этот шаблон можно применить к странице/статье в админке
-
-// В админке нужно зайти в редактирование статьи/страницы, далее
-// Page Attributes > Template, и выбрать этот шаблон
-
-// Этот файл описывает все страницы
+// Строка выше нужна, чтобы зарегестировать шаблон.
+// Этот шаблон можно применить к странице/статье в админке, чтобы это сделать
+// в админке нужно зайти в редактирование статьи/страницы, далее
+// Page Attributes > Template.
+// Этот файл описывает все страницы.
+// Этот файл может быть назван как угодно - главное это коментарий в самом
+// начале файла.
 
 // Выводит сюда содержимое файла header.php
 get_header();
@@ -20,6 +20,8 @@ if(have_posts()):
     // снизу
     the_post();
 ?>
+<!-- Этот блок здесь размещен для того, чтобы наглядно увидеть то, что
+эта страница с шаблоном special-template -->
 <div class="disclaimer">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </div>

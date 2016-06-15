@@ -39,7 +39,7 @@ if ( function_exists( 'gethostname' ) && in_array( gethostname(), $local ) ) {
 // ==================
 // = Plugin Version =
 // ==================
-define( 'AI1WM_VERSION', '5.42' );
+define( 'AI1WM_VERSION', '5.43' );
 
 // ===============
 // = Plugin Name =
@@ -257,6 +257,11 @@ if ( ! defined( 'WP_CONTENT_DIR' ) ) {
 // = Uploads Path =
 // ================
 define( 'AI1WM_UPLOADS_PATH', 'uploads' );
+
+// ==============
+// = Blogs Path =
+// ==============
+define( 'AI1WM_BLOGSDIR_PATH', 'blogs.dir' );
 
 // ==============
 // = Sites Path =

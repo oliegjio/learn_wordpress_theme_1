@@ -100,15 +100,41 @@ class Ai1wm_Import_Content {
 
 		// Set extract paths
 		foreach ( $blogs as $blog ) {
-			$old_paths[] = ai1wm_sites_path( $blog->Old->Id );
-			$new_paths[] = ai1wm_sites_path( $blog->New->Id );
+			if ( defined( 'UPLOADBLOGSDIR' ) ) {
+				// Old sites dir style
+				$old_paths[] = ai1wm_files_path( $blog->Old->Id );
+				$new_paths[] = ai1wm_files_path( $blogs->New->Id );
+
+				// New sites dir style
+				$old_paths[] = ai1wm_sites_path( $blog->Old->Id );
+				$new_paths[] = ai1wm_files_path( $blog->New->Id );
+			} else {
+				// Old sites dir style
+				$old_paths[] = ai1wm_files_path( $blog->Old->Id );
+				$new_paths[] = ai1wm_sites_path( $blog->New->Id );
+
+				// New sites dir style
+				$old_paths[] = ai1wm_sites_path( $blog->Old->Id );
+				$new_paths[] = ai1wm_sites_path( $blog->New->Id );
+			}
 		}
 
 		while ( $archive->has_not_reached_eof() ) {
 			try {
 
+				// Exclude WordPress files
+				$exclude_files = array_keys( _get_dropins() );
+
+				// Exclude plugin files
+				$exclude_files = array_merge( $exclude_files, array(
+					AI1WM_PACKAGE_NAME,
+					AI1WM_MULTISITE_NAME,
+					AI1WM_DATABASE_NAME,
+					AI1WM_MUPLUGINS_NAME,
+				) );
+
 				// Extract a file from archive to WP_CONTENT_DIR
-				if ( ( $content_offset = $archive->extract_one_file_to( WP_CONTENT_DIR, array( AI1WM_PACKAGE_NAME, AI1WM_MULTISITE_NAME, AI1WM_DATABASE_NAME, AI1WM_MUPLUGINS_NAME ), $old_paths, $new_paths, $content_offset, 10 ) ) ) {
+				if ( ( $content_offset = $archive->extract_one_file_to( WP_CONTENT_DIR, $exclude_files, $old_paths, $new_paths, $content_offset, 10 ) ) ) {
 
 					// Set progress
 					if ( ( $processed += $content_offset ) ) {

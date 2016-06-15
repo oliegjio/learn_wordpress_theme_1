@@ -4,6 +4,10 @@ Author: Oliegjio
 Author URI: https://github.com/oliegjio
 Version: 1.0
 */
+/* Этот файл задает стили для сайта и подгружается в файле functions.php.
+Он ОДИН описывает стили ВСЕГО сайта.
+У него может быть другое название, главное изменить имя
+подгружаемого файла в functions.php */
 * {
   padding: 0;
   margin: 0;
