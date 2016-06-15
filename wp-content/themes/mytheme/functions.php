@@ -1,23 +1,29 @@
 <?php
-// Загрузка ресурсов сайта
+// Загрузка ресурсов сайта.
 function MyTheme_resources(){
-  // Загружает таблицу стилей style.css
+  // Загружает таблицу стилей style.css.
   // get_stylesheet_uri() возвращает путь (вместе с именем файла)
-  // к текущей таблице стилей темы (style.css)
+  // к текущей таблице стилей темы (style.css).
   wp_enqueue_style('style', get_stylesheet_uri());
 }
 
 add_action('wp_enqueue_scripts', 'MyTheme_resources');
 
-// Меню навигации
+// Меню навигации.
 // Регестрирует группы меню, в которые через админку можно добавить отдельные
-// страницы
+// страницы.
 register_nav_menus(array(
   'primary' => __('Primary Menu'),
   'footer' => __('Footer Menu')
 ));
 
-//
+// Функция, которая возращает ID самого верхнего родительского
+// элемента страницы.
+// Настроить какая страницы является родительской или дочерней к какой-либо
+// странице можно в админке:
+// Pages > All Pages > (Выбрать страницу и нажать Edit) >
+// > Page Attributes > Parent
+// Если у страницы его нет, то возвращает ID этой же страницы.
 function get_top_ancestor_id(){
   global $post;
   if($post->post_parent){
