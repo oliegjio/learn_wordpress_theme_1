@@ -136,3 +136,16 @@ a:hover {
   background-color: orange;
   border: 2px solid darkorange;
 }
+
+/* Стиль панели с информациеё о статье (дате, авторе, категории) */
+.post-info {
+  margin-bottom: 15px;
+  padding: 3px;
+  background-color: #dedede;
+}
+.post-info {
+  color: #656565;
+}
+.post-info a {
+  color: #c6ab70;
+}
