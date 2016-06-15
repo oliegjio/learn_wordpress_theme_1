@@ -1,13 +1,17 @@
       <footer class="site-footer">
         <!-- Меню навигации -->
+        <!-- Здесь WordPress выводит ul с элементами li - пунктами менью,
+        при этом к активному пункту меню (li) WordPress автоматически
+        добавляет класс current-menu-item, что позволяет его стилизовать -->
         <nav class="site-nav">
           <?php
           $args = array(
             'theme_location' => 'footer'
           );
 
-          // Выводит список меню из группы 'footer', содержимое этой группы
-          // можно изменить в админке
+          // Выводит список меню из группы 'Footer Menu',
+          // содержимое этой группы можно изменить в админке:
+          // Appearence > Menus > Select a menu to edit
           // Подробнее в файле functions.php
           wp_nav_menu($args);
           ?>

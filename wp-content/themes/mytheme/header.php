@@ -25,14 +25,19 @@
         <!-- Выводит описание сайта -->
         <?php bloginfo('description'); ?>
       </h5>
+      <!-- Меню навигации -->
+      <!-- Здесь WordPress выводит ul с элементами li - пунктами менью,
+      при этом к активному пункту меню (li) WordPress автоматически
+      добавляет класс current-menu-item, что позволяет его стилизовать -->
       <nav class="site-nav">
         <?php
         $args = array(
           'theme_location' => 'primary'
         );
 
-        // Выводит список меню из группы 'footer', содержимое этой группы
-        // можно изменить в админке
+        // Выводит список меню из группы 'Primary Menu',
+        // содержимое этой группы можно изменить в админке:
+        // Appearence > Menus > Select a menu to edit
         // Подробнее в файле functions.php
         wp_nav_menu($args);
         ?>

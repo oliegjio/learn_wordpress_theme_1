@@ -9,44 +9,39 @@ Version: 1.0
   margin: 0;
   font-family: Verdana;
 }
+
 body {
   background: lightgray;
 }
-/*
-Общий стиль для всех ссылок
-*/
+
+/* Общий стиль для всех ссылок */
 a {
-  color: darkorange;
+  color: #e79106;
   text-decoration: none;
 }
-
 a:hover {
   text-decoration: underline;
 }
-/*
-Стиль обертки (div), которая центрирует контент
-*/
+
+/* Стиль обертки (div), которая центрирует контент */
 .wrapper {
   margin: 0 auto;
   width: 950px;
 }
-/*
-Стиль заголовка сайта (header)
-*/
+
+/* Стиль заголовка сайта (header) */
 .site-header {
   padding-top: 20px;
   border-bottom: 2px solid brown;
 }
-/*
-Стиль подвала сайта (footer)
-*/
+
+/* Стиль подвала сайта (footer) */
 .site-footer {
   padding-bottom: 20px;
   border-top: 2px solid brown;
 }
-/*
-Стиль отображения поста (article) стандартного layout'а (page.php)
-*/
+
+/* Стиль отображения поста (article) стандартного layout'а (page.php) */
 .post {
   padding: 40px 10px;
   border-bottom: 2px dotted red;
@@ -54,9 +49,8 @@ a:hover {
 .post:last-of-type {
   border-bottom: none;
 }
-/*
-Стили меню навигации (div>li>a)
-*/
+
+/* Стили меню навигации (div>li>a) */
 .site-nav {
   padding-top: 20px;
 }
@@ -74,15 +68,65 @@ a:hover {
   display: inline-block;
   list-style-type: none;
 }
-/*
-Стиль отображения статей (article) страницы "Articles"
-*/
+/* WordPress автоматически добавляет к активному элементу li из
+меню класс current-menu-item, таким образом можно стилизовать
+кнопку текущего пункта меню */
+.site-nav li.current-menu-item {
+  background: lightyellow;
+}
+
+/* Меню навигации, которое отображает дочерние страницы текущей страницы */
+.nav-children-pages {
+  padding-bottom: 10px;
+}
+.nav-children-pages ul {
+  display: inline-block;
+}
+.nav-children-pages > a {
+  display: inline-block;
+  color: rgb(193,66,26);
+  font-weight: bold;
+}
+.nav-children-pages > a:after {
+  content: ':';
+  display: inline-block;;
+  margin-left: -5px;
+  width: 10px;
+}
+.nav-children-pages > ul > li {
+  display: inline-block;
+  list-style-type: none;
+}
+.nav-children-pages > ul > li:after {
+  content: '>';
+  display: inline-block;
+  margin: 0 2px 0 6px;
+  color: #f00;
+}
+.nav-children-pages > ul > li:last-of-type:after {
+  content: '';
+  display: none;
+}
+.nav-children-pages > ul > li > a {
+  color: #d77b00;
+  margin: 0 2px;
+  padding: 2px 4px;
+  border: 2px solid transparent;
+}
+.nav-children-pages > ul > li.current_page_item > a {
+  border-bottom: 2px solid #f00;
+}
+.nav-children-pages > ul > li > a:hover {
+  border: 2px dashed #f00;
+  text-decoration: none;
+}
+
+/* Стиль отображения статей (article) страницы "Articles" */
 .articles-page {
   background-color: lightgreen;
 }
-/*
-Стиль предупреждения (div) из страницы "About Me"
-*/
+
+/* Стиль предупреждения (div) из страницы "About Me" */
 .disclaimer {
   margin-top: 10px;
   background-color: orange;
