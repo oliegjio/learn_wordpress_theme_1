@@ -37,4 +37,17 @@ function get_top_ancestor_id(){
   }
   return $post->ID;
 }
-?>
+
+// Фильтр, который задает длинну стандартного сокращения для статей.
+function custom_excerpt_length(){
+  return 25;
+}
+add_filter('excerpt_length', 'custom_excerpt_length');
+
+// Настройка нашей темы.
+function MyTheme_setup(){
+  // Добавить поддержку Featured Image (это картинка, которая представляет твою
+  // статью)
+  add_theme_support('post-thumbnails');
+}
+add_action('after_setup_theme', 'MyTheme_setup');
