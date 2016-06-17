@@ -54,6 +54,19 @@ a:hover {
   border-bottom: none;
 }
 
+/* Стиль для статьи, у которой есть превью-картинка */
+.has-thumbnail {
+  position: relative;
+  padding: 40px 10px 40px 200px;
+}
+
+/* Стиль превью-картинки для поста */
+.thumbnail {
+  position: absolute;
+  top: 45px;
+  left: 0;
+}
+
 /* Стили меню навигации (div>li>a) */
 .site-nav {
   padding-top: 20px;

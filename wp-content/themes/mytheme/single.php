@@ -16,6 +16,9 @@ if(have_posts()):
 
 <!-- Выводит блок со статьей через цикл сверху -->
 <article class="post">
+  <?php
+  the_post_thumbnail('banner-image');
+  ?>
   <h2>
     <!-- Выводит ссылку на статью -->
     <a href="<?php the_permalink(); ?>">

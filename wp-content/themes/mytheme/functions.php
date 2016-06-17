@@ -49,5 +49,12 @@ function MyTheme_setup(){
   // Добавить поддержку Featured Image (это картинка, которая представляет твою
   // статью)
   add_theme_support('post-thumbnails');
+  // Добавляет поддержку нового соотношения сторон, 'small-thumbnail'
+  // теперь можно применить в функции the_post_thumnail('small-thumbnail').
+  // Четвертый аргумент - массив, который описывает как изоображение будет
+  // вырезатся для того, чтобы удовлетворять заданному разрешению.
+  // Можно создать сколько угодно таких кофигураций.
+  add_image_size('small-thumbnail', 180, 120, array('center', 'left'));
+  add_image_size('banner-image', 920, 210, array('center', 'left'));
 }
 add_action('after_setup_theme', 'MyTheme_setup');
