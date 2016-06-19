@@ -1,19 +1,21 @@
 <?php
-// Этот файл описывает домашнюю страницу, на которой перечисляются все
-// опубликованные посты.
-// Этот файл всегда называется index.php
+// Этот файл описывает страницу с результатами поиска статей
 
 // Выводит сюда содержимое файла header.php
-get_header();
+get_header(); ?>
 
+<h2 class='search-header'>
+  Search for: <?php the_search_query(); ?>
+</h2>
+
+<?php
 // Есть ли статьи
 if(have_posts()):
   while(have_posts()):
     // Итерирует все посты, что позволяет использовать функции
     // снизу
     the_post();
-    // Выводит сюда содержимое файла content-*POST_FORMAT*.php, например:
-    // содержимое фала content-aside.php или content-link.php
+    // Выводит сюда содержимое файла content.php
     get_template_part('content', get_post_format());
   endwhile;
 else:

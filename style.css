@@ -1,0 +1,250 @@
+/*
+Theme Name: My Theme
+Author: Oliegjio
+Author URI: https://github.com/oliegjio
+Version: 1.0
+*/
+/* Этот файл задает стили для сайта и подгружается в файле functions.php.
+Он ОДИН описывает стили ВСЕГО сайта.
+У него может быть другое название, главное изменить имя
+подгружаемого файла в functions.php */
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Verdana;
+}
+
+body {
+  background: lightgray;
+}
+
+/* Общий стиль для всех ссылок */
+a {
+  color: #e79106;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Стиль обертки (div), которая центрирует контент */
+.wrapper {
+  margin: 0 auto;
+  width: 950px;
+}
+
+/* Стиль заголовка сайта (header) */
+.site-header {
+  padding-top: 20px;
+  border-bottom: 2px solid brown;
+}
+
+/* Стиль подвала сайта (footer) */
+.site-footer {
+  padding-bottom: 20px;
+  border-top: 2px solid brown;
+}
+
+/* Стиль отображения поста (article) стандартного layout'а (page.php) */
+.post {
+  padding: 40px 10px;
+}
+.post:last-of-type {
+  border-bottom: none;
+}
+.post-with-border {
+  border-bottom: 2px dotted red;
+}
+
+/* Стиль для статьи, у которой есть превью-картинка */
+.has-thumbnail {
+  position: relative;
+  padding: 40px 10px 40px 200px;
+}
+
+/* Стиль превью-картинки для поста */
+.thumbnail {
+  position: absolute;
+  top: 45px;
+  left: 0;
+}
+
+/* Стили меню навигации (div>li>a) */
+.site-nav {
+  padding-top: 20px;
+}
+.site-nav:last-of-type {
+  padding-bottom: 20px;
+}
+.site-nav a {
+  display: block;
+  padding: 5px 10px;
+  border: 2px dashed yellow;
+  color: brown;
+  font-weight: bold;
+}
+.site-nav li {
+  display: inline-block;
+  list-style-type: none;
+}
+/* WordPress автоматически добавляет к активному элементу li из
+меню класс current-menu-item, таким образом можно стилизовать
+кнопку текущего пункта меню */
+.site-nav li.current-menu-item {
+  background: lightyellow;
+}
+
+/* Меню навигации (nav>(a+(ul>li))), которое отображает цепочку детей и
+родителей для текущей страницы.
+Отображается если у станицы есть потомки или она сама является потомком */
+.nav-children-pages {
+  padding-bottom: 10px;
+}
+.nav-children-pages ul {
+  display: inline-block;
+}
+.nav-children-pages > a {
+  display: inline-block;
+  color: rgb(193,66,26);
+  font-weight: bold;
+}
+.nav-children-pages > a:after {
+  content: ':';
+  display: inline-block;;
+  margin-left: -5px;
+  width: 10px;
+}
+.nav-children-pages > ul > li {
+  display: inline-block;
+  list-style-type: none;
+}
+.nav-children-pages > ul > li:after {
+  content: '>';
+  display: inline-block;
+  margin: 0 2px 0 6px;
+  color: #f00;
+}
+.nav-children-pages > ul > li:last-of-type:after {
+  content: '';
+  display: none;
+}
+.nav-children-pages > ul > li > a {
+  color: #d77b00;
+  margin: 0 2px;
+  padding: 2px 4px;
+  border: 2px solid transparent;
+}
+/* WordPress автоматически добавляет к текущему пункту меню
+класс current_page_item */
+.nav-children-pages > ul > li.current_page_item > a {
+  border-bottom: 2px solid #f00;
+}
+.nav-children-pages > ul > li > a:hover {
+  border: 2px dashed #f00;
+  text-decoration: none;
+}
+
+/* Стиль отображения статей (article) страницы "Articles" */
+.articles-page {
+  background-color: lightgreen;
+}
+
+/* Стиль предупреждения (div) из страницы "About Me" */
+.disclaimer {
+  margin-top: 10px;
+  background-color: orange;
+  border: 2px solid darkorange;
+}
+
+/* Стиль панели с информациеё о статье (дате, авторе, категории) */
+.post-info {
+  margin-bottom: 15px;
+  padding: 3px;
+  background-color: #dedede;
+}
+.post-info {
+  color: #656565;
+}
+.post-info a {
+  color: #c6ab70;
+}
+
+/* Стиль строки поиска */
+.search-form {
+  float: right;
+}
+/* Лейбл, который нужен для скринридеров, поэтому он скрыт, сдвинут влево */
+.search-form label {
+  position: absolute;
+  left: -9999px;
+}
+.search-form #searchsubmit {
+  vertical-align: top;
+  background: #dbbf00;
+  padding: 5px 10px;
+  border: none;
+  color: brown;
+  font-weight: bold;
+}
+.search-form input[type="text"] {
+  vertical-align: top;
+  padding: 5px 5px;
+  border: none;
+}
+
+/* Стиль для заголовка страницы поиска */
+.search-header {
+  margin-top: 15px;
+}
+
+/* Стиль, описывающий Aside-пост */
+article.post-aside {
+  font-size: 125%;
+  background: lightgreen;
+  border: 2px solid yellow;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 5px 5px 20px lime;
+  margin: 25px 0 25px 0;
+  padding: 10px;
+}
+.post-aside .aside-meta {
+  box-shadow: 3px 3px 8px lime;
+  background: lime;
+  display: inline-block;
+  padding: 2px;
+  margin-bottom: 8px;
+}
+.post-aside .aside-meta span {
+  color: red;
+  font-weight: bold;
+}
+
+/* Стиль описывающий Link-посты */
+.post-link {
+  background: rgb(255,192,69);
+  text-align: center;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  margin: 25px 0;
+  padding: 0;
+  border: 1px solid darkgreen;
+}
+.post-link a {
+  text-decoration: underline;
+  padding: 8px;
+  display: block;
+  height: 100%;
+  width: 100%;
+  color: black;
+  font-weight: bold;
+}
+
+/* Стиль, который описывает Gallery-пост */
+.post-gallery {
+  background: rgb(50,30,0);
+  border: none;
+  color: white;
+  text-align: center;
+
+}
